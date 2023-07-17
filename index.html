@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header >
+        <h1>Password Generator</h1>
+      </header>
+
+      <!-- Explanation for the user on how to generate password -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+          
+        </div>
+<br>
+        <!-- All variables used in password generation are stored below,
+     including four different buttons and a slider for length -->
+        <div class="controls">
+          <div class="control length">
+            <label>Password Length</label>
+            <form>
+              <input
+                id="length-box"
+                type="range"
+                name="amountRange"
+                min="4"
+                max="128"
+                value="4"
+                oninput="this.form.amountInput.value=this.value"
+              />
+              
+              <input
+                type="number"
+                id="number"
+                name="amountInput"
+                min="8"
+                max="128"
+                value="8"
+                oninput="this.form.amountRange.value=this.value"
+              />
+            </form>
+            <br>
+            <div class="control">
+              <input type="checkbox" id="lowercase" value="" />
+              <label class="check-label" for="lowercase"
+                ><span class="checkbox">Lowercase Characters</span></label
+              >
+            </div><br>
+            <div class="control">
+              <input type="checkbox" id="uppercase" />
+              <label class="check-label" for="uppercase"
+                ><span class="checkbox">Uppercase Characters</span></label
+              >
+            </div><br>
+            <div class="control">
+              <input type="checkbox" id="numbers" />
+              <label class="check-label" for="numbers"
+                ><span class="checkbox">Numbers</span></label
+              >
+            </div>
+            <br>
+            <div class="control">
+              <input type="checkbox" id="specialChar" />
+              <label class="check-label" for="specialChar"
+                ><span class="checkbox">Special Characters</span></label
+              >
+            </div><br>
+            <div class="card-body">
+              <!-- Password is written in the area below, kept as 
+              readonly to prevent users from accidentally editing written password -->
+              <textarea
+                readonly
+                id="password"
+                placeholder="Your Secure Password"
+                aria-label="Generated Password"
+              ></textarea>
+              <!-- Two buttons with functions to generate and copy the password respectively -->
+            </div><br>
+            <div class="card-footer">
+              <button id="generate" class="btn" onClick="writePassword()">
+                Generate 
+              </button>
+              <button id="copy"class="btn" onClick="copyPassword()">Copy </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
